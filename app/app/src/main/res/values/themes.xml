@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NICD" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.NICD" parent="Base.Theme.NICD" />
+    <style name="cardViewBackground">
+        <item name="cardBackgroundColor">@color/cardViewLight</item>
+    </style>
+
+    <style name="emailInput">
+        <item name="android:drawableStart">@drawable/ic_person_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="passwordInput">
+        <item name="android:drawableStart">@drawable/ic_lock_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="nameInput">
+        <item name="android:drawableStart">@drawable/ic_name_dark</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="genderInput">
+        <item name="android:drawableStart">@drawable/ic_gender_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="weightInput">
+        <item name="android:drawableStart">@drawable/ic_balance_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="drinkerInput">
+        <item name="android:drawableStart">@drawable/ic_drink_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="smokerInput">
+        <item name="android:drawableStart">@drawable/ic_smoke_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="diabetesInput">
+        <item name="android:drawableStart">@drawable/ic_diabetes_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="hypertensionInput">
+        <item name="android:drawableStart">@drawable/ic_heart_dark_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+</resources>

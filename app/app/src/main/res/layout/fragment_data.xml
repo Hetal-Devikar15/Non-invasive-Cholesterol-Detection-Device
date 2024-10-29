@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".DataFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            style="@style/cardViewBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Your Details"
+                    android:layout_marginVertical="30dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/input_border"
+                    style="@style/nameInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="text"
+                    android:hint="Your Name"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/emailInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="number"
+                    android:hint="Your Age"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <Spinner
+                    android:id="@+id/genderSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/genderInput"
+                    android:layout_marginTop="10dp"
+                    android:padding="12dp"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/input_border" />
+
+                <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/weightInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="numberDecimal"
+                    android:hint="Your Weight"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/drinker"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/drinkerInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="textCapSentences"
+                    android:hint="Enter Yes/No, Are you Drinker?"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/smoker"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/smokerInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="textCapSentences"
+                    android:hint="Enter Yes/No, Are you Smoker?"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/diabetes"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/diabetesInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="textCapSentences"
+                    android:hint="Enter Yes/No, Have you Diabetes?"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/hypertension"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_border"
+                    style="@style/hypertensionInput"
+                    android:drawablePadding="8dp"
+                    android:inputType="textCapSentences"
+                    android:hint="Enter Yes/No, Have you Hypertension?"
+                    android:paddingHorizontal="12dp"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <Button
+                    android:id="@+id/shareBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/purple"
+                    android:text="Share Now"
+                    android:textSize="18sp"
+                    app:cornerRadius="20dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+</LinearLayout>

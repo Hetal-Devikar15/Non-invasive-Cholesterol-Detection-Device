@@ -1,0 +1,55 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NICD" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+    <style name="cardViewBackground">
+        <item name="cardBackgroundColor">@color/cardViewDark</item>
+    </style>
+
+    <style name="emailInput">
+        <item name="android:drawableStart">@drawable/ic_person_light_24</item>
+        <item name="android:textColor">@color/inputLightTextColor</item>
+    </style>
+
+    <style name="passwordInput">
+        <item name="android:drawableStart">@drawable/ic_lock_light_24</item>
+        <item name="android:textColor">@color/inputLightTextColor</item>
+    </style>
+
+    <style name="genderInput">
+        <item name="android:drawableStart">@drawable/ic_gender_light_24</item>
+        <item name="android:textColor">@color/inputLightTextColor</item>
+    </style>
+
+    <style name="nameInput">
+        <item name="android:drawableStart">@drawable/ic_name_light</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="weightInput">
+        <item name="android:drawableStart">@drawable/ic_balance_light_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="drinkerInput">
+        <item name="android:drawableStart">@drawable/ic_drink_light_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="smokerInput">
+        <item name="android:drawableStart">@drawable/ic_smoke_light_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="diabetesInput">
+        <item name="android:drawableStart">@drawable/ic_diabetes_light_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+
+    <style name="hypertensionInput">
+        <item name="android:drawableStart">@drawable/ic_heart_light_24</item>
+        <item name="android:textColor">@color/inputDarkTextColor</item>
+    </style>
+</resources>

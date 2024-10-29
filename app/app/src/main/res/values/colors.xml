@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#5A6AF6</color>
+    <color name="cardViewLight">#FFFFFF</color>
+    <color name="cardViewDark">#232323</color>
+    <color name="inputLightTextColor">#FFFFFF</color>
+    <color name="inputDarkTextColor">#000000</color>
+</resources>

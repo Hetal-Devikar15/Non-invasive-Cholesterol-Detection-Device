@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320954136215",
+    "project_id": "nicd-7ac92",
+    "storage_bucket": "nicd-7ac92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320954136215:android:33f330fd0113964ee95bd2",
+        "android_client_info": {
+          "package_name": "com.xncoder.nicd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhRtraRQXOFkk5KnPibfnPBePL3rk9WJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
