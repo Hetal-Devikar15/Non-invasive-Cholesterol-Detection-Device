@@ -7,6 +7,20 @@ from io import BytesIO
 import time
 import RPi.GPIO as GPIO
 import math
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+cholesterol_conc_mmol_L = [2.5, 5.0, 7.5, 10.0]
+cholesterol_conc_mg_dL = [x * 38.67 for x in cholesterol_conc_mmol_L]
+absorbances = [0.295, 0.526, 0.714, 0.949]
+
+# Reshape data for sklearn
+X = np.array(cholesterol_conc_mg_dL).reshape(-1, 1)
+y = np.array(absorbances)
+
+# Create and fit the model
+inverse_model = LinearRegression()
+inverse_model.fit(y.reshape(-1, 1), X)
 
 S0 = 21
 S1 = 20
@@ -82,9 +96,10 @@ def sse_view(request):
             blue_pw = get_blue_pw()
             time.sleep(0.2)
 
-            # absorbance = -math.log10((0.299 * red_pw + 0.587 * green_pw + 0.114 * blue_pw) / 255.0)
+            A = -math.log10((0.299 * red_pw + 0.587 * green_pw + 0.114 * blue_pw) / 255.0)
+            C = inverse_model.predict(np.array([[A]]))[0]
 
-            data = f"red: {red_pw} | green: {green_pw} | blue: {blue_pw}\n\n"
+            data = f"Your cholesterol concentration is {C} mg/dL."
             yield data
     response = StreamingHttpResponse(event_stream(), content_type='text/event-stream')
     response['Cache-Control'] = 'no-cache'
