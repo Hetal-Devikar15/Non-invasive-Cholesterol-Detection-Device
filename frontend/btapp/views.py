@@ -5,7 +5,7 @@ import base64
 import uuid
 from io import BytesIO
 import time
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import math
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -28,15 +28,15 @@ S2 = 16
 S3 = 26
 sensorOut = 19
 
-# GPIO.setmode(GPIO.BCM)
-# GPIO.setup(S0, GPIO.OUT)
-# GPIO.setup(S1, GPIO.OUT)
-# GPIO.setup(S2, GPIO.OUT)
-# GPIO.setup(S3, GPIO.OUT)
-# GPIO.setup(sensorOut, GPIO.IN)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(S0, GPIO.OUT)
+GPIO.setup(S1, GPIO.OUT)
+GPIO.setup(S2, GPIO.OUT)
+GPIO.setup(S3, GPIO.OUT)
+GPIO.setup(sensorOut, GPIO.IN)
 
-# GPIO.output(S0, GPIO.HIGH)
-# GPIO.output(S1, GPIO.LOW)
+GPIO.output(S0, GPIO.HIGH)
+GPIO.output(S1, GPIO.LOW)
 
 def index(request):
     return render(request, 'index.html')
@@ -65,25 +65,25 @@ def qr_code(request):
 
     return JsonResponse({'qr_code': img_str, 'code': pairing_info})
 
-# def get_pulse_width(S2_state, S3_state):
-#     GPIO.output(S2, S2_state)
-#     GPIO.output(S3, S3_state)
-#     start_time = time.time()
-#     while GPIO.input(sensorOut) == GPIO.LOW:
-#         pass
-#     while GPIO.input(sensorOut) == GPIO.HIGH:
-#         pass
-#     pulse_width = time.time() - start_time
-#     return pulse_width
+def get_pulse_width(S2_state, S3_state):
+    GPIO.output(S2, S2_state)
+    GPIO.output(S3, S3_state)
+    start_time = time.time()
+    while GPIO.input(sensorOut) == GPIO.LOW:
+        pass
+    while GPIO.input(sensorOut) == GPIO.HIGH:
+        pass
+    pulse_width = time.time() - start_time
+    return pulse_width
 
-# def get_red_pw():
-#     return get_pulse_width(GPIO.LOW, GPIO.LOW)
+def get_red_pw():
+    return get_pulse_width(GPIO.LOW, GPIO.LOW)
 
-# def get_green_pw():
-#     return get_pulse_width(GPIO.HIGH, GPIO.HIGH)
+def get_green_pw():
+    return get_pulse_width(GPIO.HIGH, GPIO.HIGH)
 
-# def get_blue_pw():
-#     return get_pulse_width(GPIO.LOW, GPIO.HIGH)
+def get_blue_pw():
+    return get_pulse_width(GPIO.LOW, GPIO.HIGH)
 
 def sse_view(request):
     def event_stream():
