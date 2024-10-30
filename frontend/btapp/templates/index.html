@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <title>Cholesterol Detection</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000;
+            color: #0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            height: 80%;
+            text-align: center;
+            background: #000;
+            padding: 20px;
+            border: 1px solid #0f0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #0f0; /* Green */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .sub {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #startButton {
+            background: #000;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            color: #0f0;
+            font-size: 16px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        #startButton:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .image {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #0f0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.5);
+        }
+
+        .scan-icon {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1 style="margin-top: 0;">Cholesterol Detection</h1>
+        <div class="sub">
+            <div id="message" class="message"></div>
+
+            <div class="sub1" style="display: flex;">
+                <button id="startButton">Start</button>
+            </div>
+            <div class="sub2" style="display: none;">
+                <img class="image" src="" alt="QR Code">
+            </div>
+            <div class="sub3" style="display: none;">
+                <div class="labels" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span style="margin-right: 10px;">Name</span>
+                    <span style="margin-right: 10px;">Age</span>
+                    <span style="margin-right: 10px;">Gender</span>
+                    <span style="margin-right: 10px;">Weight</span>
+                    <span style="margin-right: 10px;">Drinker</span>
+                    <span style="margin-right: 10px;">Smoker</span>
+                    <span style="margin-right: 10px;">Diabetes</span>
+                    <span style="margin-right: 10px;">Hypertension</span>
+                </div>
+                <div class="values" style="display: flex; flex-direction: column; align-items: center;">
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                </div>
+                <div class="values" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span id="name" style="margin-left: 10px;">John Doe</span>
+                    <span id="age" style="margin-left: 10px;">25</span>
+                    <span id="gender" style="margin-left: 10px;">Male</span>
+                    <span id="weight" style="margin-left: 10px;">70</span>
+                    <span id="drinker" style="margin-left: 10px;">No</span>
+                    <span id="smoker" style="margin-left: 10px;">No</span>
+                    <span id="diabetes" style="margin-left: 10px;">No</span>
+                    <span id="hypertension" style="margin-left: 10px;">No</span>
+                </div>
+            </div>
+            <div class="sub4" style="display: none;">
+                <div class="scan-icon">
+                    <i class="fa-light fa-fingerprint" style="font-size: 40px; margin-bottom: 10px;"></i>
+                    <i class="fa-thin fa-hand-point-up" style="font-size: 50px;"></i>
+                </div>
+            </div>
+            <div class="sub5" style="display: none;">
+                <i class="fa-light fa-fingerprint fa-beat-fade" style="font-size: 50px;"></i>
+            </div>
+            <div class="loading" style="display: none;">
+                <div id="loader" class="loader"></div>
+            </div>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        const eventSource = new EventSource('/data/')
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            document.getElementsByClassName("sub1")[0].style.display = "none";
+            document.getElementsByClassName("loading")[0].style.display = "flex";
+            fetch('/qr/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementsByClassName("loading")[0].style.display = "none";
+                document.getElementsByClassName("sub2")[0].style.display = "flex";
+                document.getElementById("message").innerText = "Scan this QR by NICD app";
+                const qrCodeImage = document.querySelector('.image');
+                qrCodeImage.src = 'data:image/png;base64,' + data.qr_code;
+
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAmZliinalPdGLwK1LD-QyaesuGLUZuvok",
+                    authDomain: "nicd-7ac92.firebaseapp.com",
+                    databaseURL: "https://nicd-7ac92-default-rtdb.firebaseio.com",
+                    projectId: "nicd-7ac92",
+                    storageBucket: "nicd-7ac92.appspot.com",
+                    messagingSenderId: "320954136215",
+                    appId: "1:320954136215:web:8df49fcc0058a9bee95bd2"
+                };
+
+                const app = initializeApp(firebaseConfig);
+                const dbRef = ref(getDatabase(app), "Devices/"+data.code);
+
+                let tem = 0;
+                onValue(dbRef, (snapshot) => {
+                    const data = snapshot.val();
+                    if(data != null && tem != 0) {
+                        setTimeout(() => {
+                            fitData(data);
+                        }, 5000);
+                    } else {
+                        tem = 1
+                    }
+                });
+
+            });
+
+        });
+
+        function fitData(data) {
+            document.getElementById("message").innerText = "Data is being collected!";
+            document.getElementsByClassName("sub2")[0].style.display = "none";
+            document.getElementsByClassName("sub3")[0].style.display = "flex";
+            document.getElementById("name").innerText = data.Name;
+            document.getElementById("age").innerText = data.Age;
+            document.getElementById("gender").innerText = data.Gender;
+            document.getElementById("weight").innerText = data.Weight;
+            document.getElementById("drinker").innerText = data.Drinker;
+            document.getElementById("smoker").innerText = data.Smoker;
+            document.getElementById("diabetes").innerText = data.Diabetes;
+            document.getElementById("hypertension").innerText = data.Hypertension;
+
+            setTimeout(() => {
+                document.getElementsByClassName("sub3")[0].style.display = "none";
+                document.getElementsByClassName("loading")[0].style.display = "flex";
+                document.getElementById("message").innerText = "Please wait for the fit the data";
+                setTimeout(() => {
+                    fSensorListen();
+                }, 3000);
+            }, 3000);
+        }
+
+        function fSensorListen() {
+            document.getElementsByClassName("loading")[0].style.display = "none";
+            document.getElementsByClassName("sub4")[0].style.display = "flex";
+            document.getElementById("message").innerText = "Put your finger on the 1st sensor";
+            eventSource.onmessage = function(event) {
+                console.log("New message: ", event.data);
+            }
+        }
+
+    </script>
+</body>
+</html>
