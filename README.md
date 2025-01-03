@@ -15,12 +15,22 @@ The Non-Invasive Cholesterol Detection (NICD) project aims to provide a seamless
 
 ## Project Demo
 
-A demo of the project can be accessed [here](#). *(Replace with actual link)*
+<video width="640" height="360" controls>
+  <source src="res/Video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Project Screenshots
 
-![Screenshot 1](#) *(Replace with actual image link)*
-![Screenshot 2](#) *(Replace with actual image link)*
+<div style="display: flex; justify-content: space-between;">
+  <img src="res/1.jpg" alt="Screenshot 1" width="320" height="220">
+  <img src="res/2.jpg" alt="Screenshot 2" width="320" height="220">
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="res/3.jpg" alt="Screenshot 3" width="320" height="220">
+  <img src="res/4.jpg" alt="Screenshot 4" width="320" height="220">
+</div>
 
 ## Features
 
