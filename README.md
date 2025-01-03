@@ -1,6 +1,6 @@
 # Non-Invasive Cholesterol Detection (NICD)
 
-![Socialify Image](https://socialify.git.ci/xn-coder/NICD/image?font=Bitter&language=1&name=1&owner=1&pattern=Circuit+Board&theme=Dark)
+![Socialify Image](res/NICD.png)
 
 ## Description
 
