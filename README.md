@@ -75,10 +75,6 @@ A demo of the project can be accessed [here](res/Video.mp4).
    - Follow on-screen instructions to place your finger on the sensors.
    - View the predicted cholesterol level on the LCD screen.
 
-## Contributing
-
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more details.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
