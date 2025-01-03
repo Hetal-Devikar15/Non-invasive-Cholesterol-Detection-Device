@@ -4,7 +4,10 @@
 
 ## Description
 
-The Non-Invasive Cholesterol Detection (NICD) project aims to provide a seamless and non-invasive method to measure cholesterol levels using IoT devices. The system utilizes a combination of hardware components and software applications to gather user data, process sensor inputs, and predict cholesterol levels using machine learning models.
+The Non-Invasive Cholesterol Detection (NICD) project aims to provide a seamless and non-invasive method to measure cholesterol levels using IoT devices. The system utilizes a combination
+
+
+ of hardware components and software applications to gather user data, process sensor inputs, and predict cholesterol levels using machine learning models.
 
 ## Shield.io Badges
 
@@ -18,6 +21,7 @@ The Non-Invasive Cholesterol Detection (NICD) project aims to provide a seamless
 A demo of the project can be accessed [here](https://www.youtube.com/watch?v=wRZQ12fLi4c).
 
 ## Project Screenshots
+https://github.com/user-attachments/assets/65c06004-641d-484f-bb12-769085125d7e
 
 <div style="display: flex; justify-content: space-between;">
   <img src="res/1.jpg" alt="Screenshot 1" width="320" height="450">
@@ -27,6 +31,7 @@ A demo of the project can be accessed [here](https://www.youtube.com/watch?v=wRZ
 <div style="display: flex; justify-content: space-between;">
   <img src="res/3.jpg" alt="Screenshot 3" width="320" height="450">
   <img src="res/4.jpg" alt="Screenshot 4" width="320" height="450">
+  
 </div>
 
 ## Features
