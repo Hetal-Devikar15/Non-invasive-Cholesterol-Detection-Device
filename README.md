@@ -15,7 +15,7 @@ The Non-Invasive Cholesterol Detection (NICD) project aims to provide a seamless
 
 ## Project Demo
 
-A demo of the project can be accessed [here](res/Video.mp4).
+A demo of the project can be accessed [here](https://www.youtube.com/watch?v=wRZQ12fLi4c).
 
 ## Project Screenshots
 
