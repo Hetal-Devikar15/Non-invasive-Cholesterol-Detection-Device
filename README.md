@@ -80,6 +80,3 @@ https://github.com/user-attachments/assets/65c06004-641d-484f-bb12-769085125d7e
 
 This project is licensed under the GNU License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any inquiries, please contact [prashiklikhar009@gmail.com](mailto:prashiklikhar009@gmail.com).
